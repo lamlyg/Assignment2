@@ -122,16 +122,16 @@ void datecmp(void)
 
 	printf("date compare\n");
 
-	if (time1_mon < time2_mon)
+	if (time1_mon > time2_mon)
 		printf("text1 is early\n");
-	else if (time1_mon > time2_mon)
+	else if (time1_mon < time2_mon)
 		printf("text2 is early\n");
 	else
 	{
-		if (time1_day < time2_day) {
+		if (time1_day > time2_day) {
 			printf("text1 is early\n");
 		}
-		else if (time1_day > time2_day) {
+		else if (time1_day < time2_day) {
 			printf("text2 is early\n");
 		}
 		else {
