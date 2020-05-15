@@ -12,13 +12,14 @@ void filestat1();
 void filestat2();
 void filetime1();
 void filetime2();
+void sizecmp();
 
 int main() {
 	filestat1();
 	filestat2();
 	filetime1();
 	filetime2();
-
+	sizecmp();
 }
 
 void filestat1() {
@@ -54,3 +55,24 @@ void filetime2() {
 	printf("min : %d\n", time2->tm_min);
 }
 
+void sizecmp(void)
+{
+	int size1, size2;
+	stat("text1", &stat1);
+	stat("text2", &stat2);
+
+	size1 = (int)stat1.st_size;
+	size2 = (int)stat2.st_size;
+	printf("size compare\n");
+
+	if (size1 > size2)
+		printf("text1 is bigger\n");
+	else if (size1 == size2)
+		printf("sizes are equal\n");
+	else
+		printf("text2 is bigger\n");
+	printf("\n");
+
+
+	return;
+}
