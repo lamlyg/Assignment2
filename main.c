@@ -5,16 +5,20 @@
 #include <time.h>
 
 struct stat stat1, stat2;
-struct tm *time1;
+struct tm *time1, * time2;
+
 
 void filestat1();
 void filestat2();
 void filetime1();
+void filetime2();
 
 int main() {
 	filestat1();
 	filestat2();
 	filetime1();
+	filetime2();
+
 }
 
 void filestat1() {
@@ -41,4 +45,12 @@ void filetime1() {
 	printf("min : %d\n", time1->tm_min);
 }
 
+void filetime2() {
+	printf("file2 time information\n");
+	time2 = localtime(&stat2.st_mtime);
+	printf("month : %d\n", time2->tm_mon + 1);
+	printf("date : %d\n", time2->tm_mday);
+	printf("hour : %d\n", time2->tm_hour);
+	printf("min : %d\n", time2->tm_min);
+}
 
