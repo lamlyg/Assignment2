@@ -14,6 +14,7 @@ void filetime1();
 void filetime2();
 void sizecmp();
 void blockcmp();
+void datecmp();
 
 int main() {
 	filestat1();
@@ -22,6 +23,7 @@ int main() {
 	filetime2();
 	sizecmp();
 	blockcmp();
+	datecmp();
 }
 
 void filestat1() {
@@ -96,6 +98,44 @@ void blockcmp(void)
 		printf("sizes are equal\n");
 	else
 		printf("text2 is bigger\n");
+	printf("\n");
+
+	return;
+}
+
+void datecmp(void)
+
+{
+
+	stat("text1", &stat1);
+	time1 = localtime(&stat1.st_mtime);
+	int time1_mon = time1->tm_mon;
+	int time1_day = time1->tm_mday;
+
+	stat("text2", &stat2);
+	time2 = localtime(&stat2.st_mtime);
+	int time2_mon = time2->tm_mon;
+	int time2_day = time2->tm_mday;
+
+
+	printf("date compare\n");
+
+	if (time1_mon < time2_mon)
+		printf("text1 is early\n");
+	else if (time1_mon > time2_mon)
+		printf("text2 is early\n");
+	else
+	{
+		if (time1_day < time2_day) {
+			printf("text1 is early\n");
+		}
+		else if (time1_day > time2_day) {
+			printf("text2 is early\n");
+		}
+		else {
+			printf("same time\n");
+		}
+	}
 	printf("\n");
 
 	return;
