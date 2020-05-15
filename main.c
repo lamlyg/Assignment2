@@ -13,6 +13,7 @@ void filestat2();
 void filetime1();
 void filetime2();
 void sizecmp();
+void blockcmp();
 
 int main() {
 	filestat1();
@@ -20,6 +21,7 @@ int main() {
 	filetime1();
 	filetime2();
 	sizecmp();
+	blockcmp();
 }
 
 void filestat1() {
@@ -76,3 +78,26 @@ void sizecmp(void)
 
 	return;
 }
+
+void blockcmp(void)
+
+{
+	int size1, size2;
+	stat("text1", &stat1);
+	stat("text2", &stat2);
+
+	size1 = (int)stat1.st_blocks;
+	size2 = (int)stat2.st_blocks;
+	printf("block compare\n");
+
+	if (size1 > size2)
+		printf("text1 is bigger\n");
+	else if (size1 == size2)
+		printf("sizes are equal\n");
+	else
+		printf("text2 is bigger\n");
+	printf("\n");
+
+	return;
+}
+
