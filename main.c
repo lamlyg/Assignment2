@@ -29,36 +29,40 @@ int main() {
 }
 
 void filestat1() {
-	printf("file1 information\n");
+	printf("text1 information\n");
 	stat("text1", &stat1);
 	printf("size : %d\n", (int)stat1.st_size);
 	printf("blocks : %d\n", (int)stat1.st_blocks);
+	printf("\n");
 }
 
 
 void filestat2() {
-	printf("file2 information\n");
+	printf("text2 information\n");
 	stat("text2", &stat2);
 	printf("size : %d\n", (int)stat2.st_size);
 	printf("blocks : %d\n", (int)stat2.st_blocks);
+	printf("\n");
 }
 
 void filetime1() {
-	printf("file1 time information\n");
+	printf("text1 time information\n");
 	time1 = localtime(&stat1.st_mtime);
 	printf("month : %d\n", time1->tm_mon + 1);
 	printf("date : %d\n", time1->tm_mday);
 	printf("hour : %d\n", time1->tm_hour);
 	printf("min : %d\n", time1->tm_min);
+	printf("\n");
 }
 
 void filetime2() {
-	printf("file2 time information\n");
+	printf("text2 time information\n");
 	time2 = localtime(&stat2.st_mtime);
 	printf("month : %d\n", time2->tm_mon + 1);
 	printf("date : %d\n", time2->tm_mday);
 	printf("hour : %d\n", time2->tm_hour);
 	printf("min : %d\n", time2->tm_min);
+	printf("\n");
 }
 
 void sizecmp(void)
