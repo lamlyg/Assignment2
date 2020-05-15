@@ -157,17 +157,17 @@ void timecmp(void) {
 
 	printf("time compare\n");
 
-	if (time1_hour < time2_hour) {
+	if (time1_hour > time2_hour) {
 		printf("text1 is early\n");
 	}
-	else if (time1_hour > time2_hour) {
+	else if (time1_hour < time2_hour) {
 		printf("text2 is early\n");
 	}
 	else {
-		if (time1_min < time2_min) {
+		if (time1_min > time2_min) {
 			printf("text1 is early\n");
 		}
-		else if (time1_min > time2_min) {
+		else if (time1_min < time2_min) {
 			printf("text2 is early\n");
 		}
 		else {
